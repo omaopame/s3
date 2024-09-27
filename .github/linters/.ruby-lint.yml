@@ -1,0 +1,24 @@
+---
+#######################
+# Rubocop Config file #
+#######################
+Metrics/MethodLength:
+  Max: 50
+Layout/LineLength:
+  Max: 150
+Metrics/BlockLength:
+  Max: 150
+Metrics/AbcSize:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Layout/EndOfLine:
+  Enabled: false
+Naming/FileName:
+  Enabled: false
+Style/HashSyntax:
+  EnforcedShorthandSyntax: either

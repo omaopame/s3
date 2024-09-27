@@ -1,0 +1,29 @@
+{
+  "name": "@aws-doc-sdk-examples/aws-sdk-v3-cross-service-examples-photo-analyzer",
+  "version": "1.1.0",
+  "main": "index.js",
+  "author": "Brian Murray <brmur@amazon.com>, Alex Forsyth <alex-git@amazon.com>, Corey Pyle <corepyle@amazon.com>",
+  "license": "Apache-2.0",
+  "scripts": {
+    "dev": "npm run build && npx http-server ./dist/",
+    "build": "webpack --mode development",
+    "deploy": "./scripts/deploy.sh",
+    "destroy": "./scripts/destroy.sh"
+  },
+  "dependencies": {
+    "@aws-sdk/client-cognito-identity": "^3.637.0",
+    "@aws-sdk/client-iam": "^3.637.0",
+    "@aws-sdk/client-rekognition": "^3.637.0",
+    "@aws-sdk/client-s3": "^3.637.0",
+    "@aws-sdk/client-ses": "^3.637.0",
+    "@aws-sdk/credential-provider-cognito-identity": "^3.637.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  }
+}

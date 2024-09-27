@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Build an app to submit data to DynamoDB - AWS SDK for JavaScript</title><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="assets_root" content="/assets" /><meta name="target_state" content="cross-service-example-submitting-data" /><meta name="default_state" content="cross-service-example-submitting-data" /><link rel="icon" type="image/ico" href="/assets/images/favicon.ico" /><link rel="shortcut icon" type="image/ico" href="/assets/images/favicon.ico" /><link rel="canonical" href="https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" /><meta name="description" content="Demonstrates how to build a browser-based application for submitting data to a Amazon DynamoDB table." /><meta name="deployment_region" content="IAD" /><meta name="product" content="AWS SDK for JavaScript" /><meta name="guide" content="Developer Guide for SDK Version 3" /><meta name="abstract" content="Guide to help developers use AWS services with browser scripts and Node.js." /><meta name="guide-locale" content="en_us" /><meta name="tocs" content="toc-contents.json" /><link rel="canonical" href="https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" /><link rel="alternative" href="https://docs.aws.amazon.com/id_id/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="id-id" /><link rel="alternative" href="https://docs.aws.amazon.com/id_id/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="id" /><link rel="alternative" href="https://docs.aws.amazon.com/de_de/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="de-de" /><link rel="alternative" href="https://docs.aws.amazon.com/de_de/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="de" /><link rel="alternative" href="https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="en-us" /><link rel="alternative" href="https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="en" /><link rel="alternative" href="https://docs.aws.amazon.com/es_es/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="es-es" /><link rel="alternative" href="https://docs.aws.amazon.com/es_es/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="es" /><link rel="alternative" href="https://docs.aws.amazon.com/fr_fr/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="fr-fr" /><link rel="alternative" href="https://docs.aws.amazon.com/fr_fr/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="fr" /><link rel="alternative" href="https://docs.aws.amazon.com/it_it/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="it-it" /><link rel="alternative" href="https://docs.aws.amazon.com/it_it/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="it" /><link rel="alternative" href="https://docs.aws.amazon.com/ja_jp/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="ja-jp" /><link rel="alternative" href="https://docs.aws.amazon.com/ja_jp/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="ja" /><link rel="alternative" href="https://docs.aws.amazon.com/ko_kr/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="ko-kr" /><link rel="alternative" href="https://docs.aws.amazon.com/ko_kr/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="ko" /><link rel="alternative" href="https://docs.aws.amazon.com/pt_br/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="pt-br" /><link rel="alternative" href="https://docs.aws.amazon.com/pt_br/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="pt" /><link rel="alternative" href="https://docs.aws.amazon.com/zh_cn/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="zh-cn" /><link rel="alternative" href="https://docs.aws.amazon.com/zh_tw/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="zh-tw" /><link rel="alternative" href="https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" hreflang="x-default" /><meta name="feedback-item" content="AWS SDK for JavaScript" /><meta name="this_doc_product" content="AWS SDK for JavaScript" /><meta name="this_doc_guide" content="Developer Guide for SDK Version 3" /><script defer="" src="/assets/r/vendor4.js?version=2021.12.02"></script><script defer="" src="/assets/r/vendor3.js?version=2021.12.02"></script><script defer="" src="/assets/r/vendor1.js?version=2021.12.02"></script><script defer="" src="/assets/r/awsdocs-common.js?version=2021.12.02"></script><script defer="" src="/assets/r/awsdocs-doc-page.js?version=2021.12.02"></script><link href="/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet" /><link href="/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet" /><link href="/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet" /><script async="" id="awsc-panorama-bundle" type="text/javascript" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'sdk-for-javascript'}"></script><meta id="panorama-serviceSubSection" value="Developer Guide for SDK Version 3" /><meta id="panorama-serviceConsolePage" value="Build an app to submit data to DynamoDB" /></head><body class="awsdocs awsui"><div class="awsdocs-container"><awsdocs-header></awsdocs-header><awsui-app-layout id="app-layout" class="awsui-util-no-gutters" ng-controller="ContentController as $ctrl" header-selector="awsdocs-header" navigation-hide="false" navigation-width="$ctrl.navWidth" navigation-open="$ctrl.navOpen" navigation-change="$ctrl.onNavChange($event)" tools-hide="$ctrl.hideTools" tools-width="$ctrl.toolsWidth" tools-open="$ctrl.toolsOpen" tools-change="$ctrl.onToolsChange($event)"><div id="guide-toc" dom-region="navigation"><awsdocs-toc></awsdocs-toc></div><div id="main-column" dom-region="content" tabindex="-1"><awsdocs-view class="awsdocs-view"><div id="awsdocs-content"><head><title>Build an app to submit data to DynamoDB - AWS SDK for JavaScript</title><meta name="pdf" content="/pdfs/sdk-for-javascript/v3/developer-guide/js-sdk-dg.pdf#cross-service-example-submitting-data" /><meta name="rss" content="amazon-sdk-javascript-guide-doc-history.rss" /><meta name="forums" content="https://repost.aws/" /><meta name="feedback" content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=AWS%20SDK%20for%20JavaScript&amp;topic_url=https://docs.aws.amazon.com/en_us/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" /><meta name="feedback-yes" content="feedbackyes.html?topic_url=https://docs.aws.amazon.com/en_us/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" /><meta name="feedback-no" content="feedbackno.html?topic_url=https://docs.aws.amazon.com/en_us/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html" /><meta name="keywords" content="JavaScript,ECMAScript,Node.js" /><script type="application/ld+json">
+{
+    "@context" : "https://schema.org",
+    "@type" : "BreadcrumbList",
+    "itemListElement" : [
+      {
+        "@type" : "ListItem",
+        "position" : 1,
+        "name" : "AWS",
+        "item" : "https://aws.amazon.com"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 2,
+        "name" : "AWS SDK for JavaScript",
+        "item" : "https://docs.aws.amazon.com/sdk-for-javascript/index.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 3,
+        "name" : "Developer Guide for SDK Version 3",
+        "item" : "https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 4,
+        "name" : "Work with AWS services in the SDK for JavaScript",
+        "item" : "https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/working-with-services.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 5,
+        "name" : "SDK for JavaScript code examples",
+        "item" : "https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/sdk-code-samples.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 6,
+        "name" : "Build an app to submit data to DynamoDB",
+        "item" : "https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/sdk-code-samples.html"
+      }
+    ]
+}
+</script></head><body><div id="main"><div style="display: none"><a href="/pdfs/sdk-for-javascript/v3/developer-guide/js-sdk-dg.pdf#cross-service-example-submitting-data" target="_blank" rel="noopener noreferrer" title="Open PDF"></a></div><div id="breadcrumbs" class="breadcrumb"><a href="https://aws.amazon.com">AWS</a><a href="/index.html">Documentation</a><a href="/sdk-for-javascript/index.html">AWS SDK for JavaScript</a><a href="welcome.html">Developer Guide for SDK Version 3</a></div><div id="page-toc-src"><a href="#cross-service-example-submitting-data-scenario">The scenario</a><a href="#s3-crossservices-adddata-prereqs">Prerequisites</a><a href="#s3-crossservices-adddata-provision-resources">Create the AWS resources </a><a href="#s3-crossservices-adddata-front-end">Create a front-end page for the app</a><a href="#cross-service-submitdata-browser-script">Create the browser script</a><a href="#s3-crossservices-adddata-destroy">Delete the resources</a></div><div id="main-content" class="awsui-util-container"><div id="main-col-body"><awsdocs-language-banner data-service="$ctrl.pageService"></awsdocs-language-banner><awsui-alert class="awsdocs-page-banner awsui-util-mb-l"><p> The <a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/">AWS SDK for JavaScript V3 API
+            Reference Guide</a> describes in detail all the API operations for the AWS SDK for JavaScript
+         version 3 (V3). </p></awsui-alert><h1 class="topictitle" id="cross-service-example-submitting-data">Build an app to submit data to
+            DynamoDB</h1><div class="awsdocs-page-header-container"><awsdocs-page-header></awsdocs-page-header><awsdocs-filter-selector id="awsdocs-filter-selector"></awsdocs-filter-selector></div><p>This cross-service Node.js tutorial shows how to build an app
+            that enables users to submit data to an Amazon DynamoDB table. This app uses the following
+            services:</p><div class="itemizedlist">
+             
+             
+             
+        <ul class="itemizedlist"><li class="listitem"><p>AWS Identity and Access Management (IAM) and Amazon Cognito for authorization and permissions.</p></li><li class="listitem"><p>Amazon DynamoDB (DynamoDB) to create and update the tables.</p></li><li class="listitem"><p>Amazon Simple Notification Service (Amazon SNS) to notify the app administrator when a user updates the table.</p></li></ul></div><h2 id="cross-service-example-submitting-data-scenario">The scenario</h2>
+            
+            <p>In this tutorial, an HTML page provides a browser-based application for submitting
+                data to a Amazon DynamoDB table. The app uses Amazon SNS to notify the app administrator when a user updates the table.</p>
+            
+            <div class="mediaobject">
+                 
+                    <img src="/images/sdk-for-javascript/v3/developer-guide/images/submitting_data.png" class="aws-docs-img-whiteBg aws-docs-img-padding" alt="Relationship among the browser interface, the SDK, and AWS services in the submitting data app." />
+                 
+                
+                
+                 
+            </div>
+            
+            <div class="procedure"><h6>To build the app:</h6><ol><li>
+                <p><a href="#s3-crossservices-adddata-prereqs">Prerequisites</a></p>
+            </li><li>
+                <p><a href="#s3-crossservices-adddata-provision-resources">Provision resources</a></p>
+            </li><li>
+                <p><a href="#s3-crossservices-adddata-front-end">Create the HTML</a></p>
+            </li><li>
+                <p><a href="#cross-service-submitdata-browser-script">Create the browser script</a></p>
+            </li><li>
+                <p><a href="#s3-crossservices-adddata-destroy">Next steps</a></p>
+            </li></ol></div>
+         
+            <h2 id="s3-crossservices-adddata-prereqs">Prerequisites</h2>
+            <p>Complete the following prerequisite tasks:</p>
+            <div class="itemizedlist">
+             
+                 
+            <ul class="itemizedlist"><li class="listitem">
+                <p>Set up the project environment to run these Node TypeScript examples, and install the required AWS SDK for JavaScript and third-party modules. Follow the instructions on <a href="https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javascriptv3/example_code/cross-services/submit-data-app/README.md" rel="noopener noreferrer" target="_blank"><span> GitHub</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a>.</p>
+                
+            </li><li class="listitem"><p>Create a shared configurations file with your user credentials. For more information about providing a shared credentials file, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/file-format.html">Shared config and credentials files</a> in the
+                    <em>AWS SDKs and Tools Reference Guide</em>.</p></li></ul></div>
+         
+            <h2 id="s3-crossservices-adddata-provision-resources">Create the AWS resources </h2>
+          <p>This app requires the following resources:</p>
+            <div class="itemizedlist">
+                 
+                 
+                
+            <ul class="itemizedlist"><li class="listitem"><p>AWS Identity and Access Management (IAM) Unauthenticated Amazon Cognito user role with the following permissions:</p>
+                <div class="itemizedlist">
+                     
+                     
+                <ul class="itemizedlist"><li class="listitem"><p>sns:Publish</p></li><li class="listitem"><p>dynamodb:PutItem</p></li></ul></div>
+                </li><li class="listitem"><p>A DynamoDB table.</p></li></ul></div>
+            <p>You can create these resources manually in the AWS console, but we recommend provisioning these resources
+                using AWS CloudFormation as described in this tutorial.</p>
+            
+            
+             
+                <h3 id="s3-crossservices-adddata-cli">Create the AWS resources using  AWS CloudFormation</h3>
+                <p>AWS CloudFormation enables you to create and provision AWS infrastructure deployments predictably and repeatedly. For more information about AWS CloudFormation, 
+                    see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/">AWS CloudFormation User Guide</a>.</p>
+                
+                
+                <p>To create the AWS CloudFormation stack using the AWS CLI:</p>
+                <div class="procedure"><ol><li><p>Install and configure the AWS CLI following the instructions in the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">AWS CLI User Guide</a>.</p></li><li><p>Create a file named <code>setup.yaml</code> in the root directory of your project folder, and copy the content 
+                        <a href="https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javascriptv3/example_code/cross-services/submit-data-app/setup.yaml" rel="noopener noreferrer" target="_blank"><span>
+                            here on GitHub</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a> into it.</p>
+                        <div class="awsdocs-note"><div class="awsdocs-note-title"><awsui-icon name="status-info" variant="link"></awsui-icon><h6>Note</h6></div><div class="awsdocs-note-text"><p>The AWS CloudFormation template was generated using the AWS CDK  available <a href="https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/resources/cdk/submit-data-app-unauthenticated-role" rel="noopener noreferrer" target="_blank"><span>here on GitHub</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a>. 
+                            For more information about the AWS CDK, see the <a href="https://docs.aws.amazon.com/cdk/latest/guide/">AWS Cloud Development Kit (AWS CDK) Developer Guide</a>.</p></div></div></li><li><p>Run the following command from the command line, replacing <code class="replaceable">STACK_NAME</code> 
+                        with a unique name for the stack, and <code class="replaceable">REGION</code> in your AWS region.</p>
+                        <div class="awsdocs-note awsdocs-important"><div class="awsdocs-note-title"><awsui-icon name="status-warning" variant="error"></awsui-icon><h6>Important</h6></div><div class="awsdocs-note-text"><p>The stack name must be unique within an AWS Region and AWS account. You can specify up to 128 characters, and numbers and hyphens are allowed.</p></div></div>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG: cli ()--><code class="javascript ">aws cloudformation create-stack --stack-name STACK_NAME --template-body file://setup.yaml --capabilities CAPABILITY_IAM --region REGION</code></pre>
+                        <p>For more information on the <code class="code">create-stack</code> command parameters, see
+                            the <a href="https://docs.aws.amazon.com/cli/latest/reference/cloudformation/create-stack.html">AWS CLI Command Reference guide</a>, and the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-cli-creating-stack.html">AWS CloudFormation User Guide</a>.</p>
+                        <p>To view the resources created, open AWS CloudFormation in the AWS management console, choose the stack,
+                            and select the <b>Resources</b> tab.</p></li><li><p>When the stack is create, use the AWS SDK for JavaScript to populate the DynamoDB table, as described in <a href="#s3-crossservices-adddata-resources-create-table">Populating the table</a>.</p></li></ol></div>
+             
+             
+                <h3 id="s3-crossservices-adddata-resources-create-table">Populating the table</h3>
+                <p>To populate the table, first create a directory named <code>libs</code>, and in it create
+                    a file named <code>dynamoClient.js</code>, and paste the content below into it. Replace <code class="replaceable">REGION</code> with your AWS Region, and replace <code class="replaceable">IDENTITY_POOL_ID</code> with an Amazon Cognito Identity Pool ID. This creates the DynamoDB client object.</p>
+                <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG: cli (javascript)--><code class="javascript ">import <span>{</span> CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
+import <span>{</span> fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
+import <span>{</span> DynamoDBClient } from "@aws-sdk/client-dynamodb";
+
+const REGION = "REGION";
+const IDENTITY_POOL_ID = "IDENTITY_POOL_ID"; // An Amazon Cognito Identity Pool ID.
+
+// Create an Amazon DynaomDB service client object.
+const dynamoClient = new DynamoDBClient(<span>{</span>
+  region: REGION,
+  credentials: fromCognitoIdentityPool(<span>{</span>
+    client: new CognitoIdentityClient(<span>{</span> region: REGION }),
+    identityPoolId: IDENTITY_POOL_ID,
+  }),
+});
+
+export <span>{</span> dynamoClient };
+</code></pre>
+                <p> This code is available <a href="https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javascriptv3/example_code/cross-services/submit-data-app/src/libs/dynamoClient.js" rel="noopener noreferrer" target="_blank"><span>
+                    here on GitHub</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a>.</p>
+                <p>Next, create a <code>dynamoAppHelperFiles</code> folder in your project folder, create a file <code>update-table.js</code> in it, and copy the content  <a href="https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javascriptv3/example_code/cross-services/submit-data-app/src/dynamoAppHelperFiles/update-table.js" rel="noopener noreferrer" target="_blank"><span>
+                        here on GitHub</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a> into it. </p>
+                
+                <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG: cli (javascript)--><code class="javascript ">// Import required AWS SDK clients and commands for Node.js
+import <span>{</span> PutItemCommand } from "@aws-sdk/client-dynamodb";
+import <span>{</span> dynamoClient } from "../libs/dynamoClient.js";
+
+// Set the parameters
+export const params = <span>{</span>
+  TableName: "Items",
+  Item: <span>{</span>
+    id: <span>{</span> N: "1" },
+    title: <span>{</span> S: "aTitle" },
+    name: <span>{</span> S: "aName" },
+    body: <span>{</span> S: "aBody" },
+  },
+};
+
+export const run = async () =&gt; <span>{</span>
+  try <span>{</span>
+    const data = await dynamoClient.send(new PutItemCommand(params));
+    console.log("success");
+    console.log(data);
+  } catch (err) <span>{</span>
+    console.error(err);
+  }
+};
+run();
+</code></pre>
+              
+                <p>Run the following command from the command line.</p>
+                <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG: cli ()--><code class="javascript ">node update-table.js</code></pre>
+               
+                <p> This code is available <a href="https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javascriptv3/example_code/cross-services/lambda-scheduled-events/src/helper-functions/populate-table.js" rel="noopener noreferrer" target="_blank"><span>
+                    here on GitHub</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a>.</p>
+             
+        <h2 id="s3-crossservices-adddata-front-end">Create a front-end page for the app</h2>
+            
+            <p>Here you create the front-end HTML browser page for the app.</p>
+            
+            <p>Create a <code>DynamoDBApp</code> directory, create a file named
+                <code>index.html</code>, and copy in code from <a href="https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javascriptv3/example_code/cross-services/submit-data-app/src/dynamoApp/index.html" rel="noopener noreferrer" target="_blank"><span>here on GitHub</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a>. The <code class="code">script</code> element adds
+                the <code>main.js</code> file, which contains all the required JavaScript
+                for the example. You will create the <code>main.js</code> file later in this tutorial. 
+                The remaining code in <code>index.html</code> creates the browser page that 
+                captures the data that users input.</p>
+       
+            <p>This example code can be found <a href="https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javascriptv3/example_code/cross-services/submit-data-app/src/dynamoApp/index.html" rel="noopener noreferrer" target="_blank"><span>here on GitHub</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a>.</p>
+        <h2 id="cross-service-submitdata-browser-script">Create the browser script</h2>
+            <p>First, create the service client objects required for the example. Create a <code class="code">libs</code> directory, create <code>snsClient.js</code>, and
+                paste the code below into it. Replace <code class="replaceable">REGION</code> and 
+                <code class="replaceable">IDENTITY_POOL_ID</code> in each. </p>
+            <div class="awsdocs-note"><div class="awsdocs-note-title"><awsui-icon name="status-info" variant="link"></awsui-icon><h6>Note</h6></div><div class="awsdocs-note-text"><p>Use the ID of the Amazon Cognito identity pool you created in <a href="#s3-crossservices-adddata-provision-resources">Create the AWS resources </a>.</p></div></div>
+            <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG: cli (javascript)--><code class="javascript ">import <span>{</span> CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
+import <span>{</span> fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
+import <span>{</span> SNSClient } from "@aws-sdk/client-sns";
+
+const REGION = "REGION";
+const IDENTITY_POOL_ID = "IDENTITY_POOL_ID"; // An Amazon Cognito Identity Pool ID.
+
+// Create an Amazon Comprehend service client object.
+const snsClient = new SNSClient(<span>{</span>
+  region: REGION,
+  credentials: fromCognitoIdentityPool(<span>{</span>
+    client: new CognitoIdentityClient(<span>{</span> region: REGION }),
+    identityPoolId: IDENTITY_POOL_ID,
+  }),
+});
+
+export <span>{</span> snsClient };
+</code></pre>
+          
+            <p>This code is available <a href="https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javascriptv3/example_code/cross-services/submit-data-app/src/libs/snsClient.js" rel="noopener noreferrer" target="_blank"><span>here on GitHub.</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a>.</p>
+      
+            <p>To create the browser script for this example, in a folder named
+            <code>DynamoDBApp</code>, create a Node.js module with the file name
+                <code>add_data.js</code> and paste the code below into it. The <code class="code">submitData</code> function submits data to a DynamoDB table, 
+                and sends an SMS text to the app administrator using Amazon SNS. </p>
+                <p>In the <code class="code">submitData</code> function, declare variables for the target
+            phone number, the values entered on the app interface, and for the name of the Amazon S3
+            bucket. Next, create a parameters object for adding an
+            item to the table. If none of the values is empty, <code class="code">submitData</code> adds the item
+            to the table, and sends the message. Remember to make the function available to the
+            browser, with <code class="code">window.submitData = submitData</code>.</p>
+        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG: cli (javascript)--><code class="javascript ">// Import required AWS SDK clients and commands for Node.js
+import <span>{</span> PutItemCommand } from "@aws-sdk/client-dynamodb";
+import <span>{</span> PublishCommand } from "@aws-sdk/client-sns";
+import <span>{</span> snsClient } from "../libs/snsClient.js";
+import <span>{</span> dynamoClient } from "../libs/dynamoClient.js";
+
+export const submitData = async () =&gt; <span>{</span>
+  //Set the parameters
+  // Capture the values entered in each field in the browser (by id).
+  const id = document.getElementById("id").value;
+  const title = document.getElementById("title").value;
+  const name = document.getElementById("name").value;
+  const body = document.getElementById("body").value;
+  //Set the table name.
+  const tableName = "Items";
+
+  //Set the parameters for the table
+  const params = <span>{</span>
+    TableName: tableName,
+    // Define the attributes and values of the item to be added. Adding ' + "" ' converts a value to
+    // a string.
+    Item: <span>{</span>
+      id: <span>{</span> N: id + "" },
+      title: <span>{</span> S: title + "" },
+      name: <span>{</span> S: name + "" },
+      body: <span>{</span> S: body + "" },
+    },
+  };
+  // Check that all the fields are completed.
+  if (id != "" &amp;&amp; title != "" &amp;&amp; name != "" &amp;&amp; body != "") <span>{</span>
+    try <span>{</span>
+      //Upload the item to the table
+      await dynamoClient.send(new PutItemCommand(params));
+      alert("Data added to table.");
+      try <span>{</span>
+        // Create the message parameters object.
+        const messageParams = <span>{</span>
+          Message: "A new item with ID value was added to the DynamoDB",
+          PhoneNumber: "PHONE_NUMBER", //PHONE_NUMBER, in the E.164 phone number structure.
+          // For example, ak standard local formatted number, such as (415) 555-2671, is +14155552671 in E.164
+          // format, where '1' in the country code.
+        };
+        // Send the SNS message
+        const data = await snsClient.send(new PublishCommand(messageParams));
+        console.log(
+          "Success, message published. MessageID is " + data.MessageId,
+        );
+      } catch (err) <span>{</span>
+        // Display error message if error is not sent
+        console.error(err, err.stack);
+      }
+    } catch (err) <span>{</span>
+      // Display error message if item is no added to table
+      console.error(
+        "An error occurred. Check the console for further information",
+        err,
+      );
+    }
+    // Display alert if all field are not completed.
+  } else <span>{</span>
+    alert("Enter data in each field.");
+  }
+};
+// Expose the function to the browser
+window.submitData = submitData;
+</code></pre>
+            <p>This example code can be found <a href="https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javascriptv3/example_code/cross-services/submit-data-app/src/dynamoApp/add_data.js" rel="noopener noreferrer" target="_blank"><span>here on GitHub</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a>.</p>
+            <p>Finally, run the following at the command prompt to bundle the JavaScript for this
+            example in a file named <code class="code">main.js</code>:</p>
+            <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG: cli (javascript)--><code class="javascript ">webpack add_data.js --mode development --target web --devtool false -o main.js</code></pre>
+            <div class="awsdocs-note"><div class="awsdocs-note-title"><awsui-icon name="status-info" variant="link"></awsui-icon><h6>Note</h6></div><div class="awsdocs-note-text"><p>For information about installing webpack, see <a href="./webpack.html">Bundle applications with webpack</a>.</p></div></div>
+            <p>To run the app, open <code>index.html</code> on your browser.</p>
+         
+            <h2 id="s3-crossservices-adddata-destroy">Delete the resources</h2>
+            <p>As stated at the beginning of this tutorial, be sure to
+                terminate all of the resources you create while going through this tutorial to ensure
+                that you’re not charged. You can do this by deleting the AWS CloudFormation stack you created in the
+                <a href="#s3-crossservices-adddata-provision-resources">Create the AWS resources </a> topic of this tutorial,as
+                follows:</p>
+            <div class="procedure"><ol><li>
+                    <p>Open the <a href=" https://console.aws.amazon.com/cloudformation/home" rel="noopener noreferrer" target="_blank"><span>AWS CloudFormation in the AWS management console</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a>.</p>
+                </li><li><p>Open the <b>Stacks</b> page, and select the stack.</p></li><li><p>Choose <b>Delete</b>.</p></li></ol></div>
+            <p>For more AWS cross-service examples, see <a href="https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/tutorials.html">AWS SDK for JavaScript cross-service examples</a>.</p>
+            
+        <awsdocs-copyright class="copyright-print"></awsdocs-copyright><awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}"></awsdocs-thumb-feedback></div><noscript><div><div><div><div id="js_error_message"><p><img src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png" alt="Warning" /> <strong>Javascript is disabled or is unavailable in your browser.</strong></p><p>To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.</p></div></div></div></div></noscript><div id="main-col-footer" class="awsui-util-font-size-0"><div id="doc-conventions"><a target="_top" href="/general/latest/gr/docconventions.html">Document Conventions</a></div><div class="prev-next"><div id="previous" class="prev-link" accesskey="p" href="./setting-up-node-on-ec2-instance.html">Cross-service: Setting up Node.js on an Amazon EC2 instance</div><div id="next" class="next-link" accesskey="n" href="./api-gateway-invoking-lambda-example.html">Cross-service: Amazon API Gateway and Lambda</div></div></div><awsdocs-page-utilities></awsdocs-page-utilities></div><div id="quick-feedback-yes" style="display: none;"><div class="title">Did this page help you? - Yes</div><div class="content"><p>Thanks for letting us know we're doing a good job!</p><p>If you've got a moment, please tell us what we did right so we can do more of it.</p><p><awsui-button id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback" click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=AWS SDK for JavaScript&amp;topic_url=https://docs.aws.amazon.com/en_us/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html"></awsui-button></p></div></div><div id="quick-feedback-no" style="display: none;"><div class="title">Did this page help you? - No</div><div class="content"><p>Thanks for letting us know this page needs work. We're sorry we let you down.</p><p>If you've got a moment, please tell us how we can make the documentation better.</p><p><awsui-button id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback" click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=AWS SDK for JavaScript&amp;topic_url=https://docs.aws.amazon.com/en_us/sdk-for-javascript/v3/developer-guide/cross-service-example-submitting-data.html"></awsui-button></p></div></div></div></body></div></awsdocs-view><div class="page-loading-indicator" id="page-loading-indicator"><awsui-spinner size="large"></awsui-spinner></div></div><div id="tools-panel" dom-region="tools"><awsdocs-tools-panel id="awsdocs-tools-panel"></awsdocs-tools-panel></div></awsui-app-layout><awsdocs-cookie-banner class="doc-cookie-banner"></awsdocs-cookie-banner></div></body></html>
