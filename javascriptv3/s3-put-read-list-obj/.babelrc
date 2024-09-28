@@ -1,0 +1,22 @@
+{
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "env": {
+      "production": {
+        "plugins": [
+          ["@babel/plugin-proposal-decorators", { "legacy": true }],
+          "@babel/plugin-proposal-class-properties",
+          "@babel/plugin-syntax-optional-chaining"
+        ]
+      },
+      "development": {
+        "plugins": [
+          ["@babel/plugin-proposal-decorators", { "legacy": true }],
+          "@babel/plugin-proposal-class-properties",
+          "@babel/plugin-syntax-optional-chaining",
+          "react-hot-loader/babel"
+        ]
+      }
+    }
+  }

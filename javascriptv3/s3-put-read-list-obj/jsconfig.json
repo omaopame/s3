@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "target": "es6",
+      "experimentalDecorators": true,
+      "checkJs": true
+    },
+    "include": ["app/**/*","src/**/*"],
+    "exclude": ["node_modules"],
+    "checkJs": true
+  }

@@ -1,5 +1,6 @@
 {
   "devDependencies": {
-    "prettier": "^3.2.5"
+    "prettier": "^3.2.5",
+    "webpack": "^5.95.0"
   }
 }
